@@ -11,6 +11,29 @@ $(document).on('ready', function(){
     // Create a function called `searchImages()`. This function will handle the
     // process of taking a user's search terms and sending them to Flickr for a
     // response.
+  
+    var searchImages = function(tags){
+      var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+      $.getJSON(flickerAPI, {
+        tags: tags,
+        tagmode: "any",
+        format: "json"
+      })
+       .done(function(data){
+        $('#images').empty();
+        $.each(data.items, function(i, item){
+          var newListItem = $("<li>")
+          var newTitle = $('<p class="image-title">').html(item.title).appendTo(newListItem);
+          var newDate = $('<p class="image-date"').text(item.date_taken).appendTo(newListItem);
+          var newDescription = $('<p class="image-description"').html(item.description).appendTo(newListItem);
+          var newLink = $('<a>').attr('href', item.link).text('View on Flickr.').appendTo(newListItem);
+        })
+        newListItem.appendTo("#images");
+        if (i === 15) {
+          return false;
+        }
+      })
+    }
 
     // Inside the `searchImages()` function, the following things should happen:
 
