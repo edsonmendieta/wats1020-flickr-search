@@ -27,6 +27,28 @@ ul#images {
     list-style-type: none;
 }
 
+#images li {
+  float: left;
+  padding: 3% 25px;
+/*   padding-bottom: 2%; */
+}
+
+#images img{
+  height: 150px;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: solid black 5px;
+}
+
+.enlarge {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: black;
+  border-radius: 20px;
+}
+
 ul#images .placeholder {
     font-size: 2em;
     font-weight: lighter;
