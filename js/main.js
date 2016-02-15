@@ -55,9 +55,8 @@ $('button.search').click(function(event){
   });
 
   
-  $(".poop").fitText();
   
-});
+
   
 
 
